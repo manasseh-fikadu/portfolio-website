@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			:root {
+				--bg-color: #ffffff;
+				--text-color: #000000;
+				--text-secondary: #555555;
+				--accent-color: #333333;
+				--accent-color-light: #e6e6e6;
+				--secondary-bg: #f0f0f0;
+				--border-color: #dddddd;
+				--tag-bg: #f0f0f0;
+				--tag-text: #333333;
+			}
+			
+			[data-theme="dark"] {
+				--bg-color: #121212;
+				--text-color: #ffffff;
+				--text-secondary: #aaaaaa;
+				--accent-color: #cccccc;
+				--accent-color-light: #2a2a2a;
+				--secondary-bg: #1e1e1e;
+				--border-color: #333333;
+				--tag-bg: #2a2a2a;
+				--tag-text: #dddddd;
+			}
+			
+			body {
+				font-family: Consolas, 'Courier New', monospace;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				margin: 0;
+				padding: 0;
+				transition: background-color 0.3s ease, color 0.3s ease;
+			}
+		</style>
+		<script>
+			// Check for saved theme preference or use preferred color scheme
+			const getInitialTheme = () => {
+				const savedTheme = localStorage.getItem('theme');
+				if (savedTheme) {
+					return savedTheme;
+				}
+				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			};
+
+			// Apply theme on page load
+			document.addEventListener('DOMContentLoaded', () => {
+				const initialTheme = getInitialTheme();
+				document.documentElement.setAttribute('data-theme', initialTheme);
+			});
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
