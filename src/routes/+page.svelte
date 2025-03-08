@@ -66,7 +66,7 @@
 </script>
 
 <svelte:head>
-  <title>Developer Portfolio</title>
+  <title>Minase Fikadu - Portfolio</title>
   <meta name="description" content="A minimalist developer portfolio showcasing projects and skills" />
 </svelte:head>
 
