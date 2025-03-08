@@ -205,7 +205,7 @@
       <span class="contact-label">GitHub</span>
     </a>
     
-    <a href="https://www.linkedin.com/in/minasseh/" target="_blank" rel="noopener noreferrer" class="contact-item">
+    <a href="https://www.linkedin.com/in/minase-fikadu/" target="_blank" rel="noopener noreferrer" class="contact-item">
       <div class="contact-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>

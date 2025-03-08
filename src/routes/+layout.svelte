@@ -1,6 +1,7 @@
 <script>
   import ThemeToggle from '$lib/ThemeToggle.svelte';
   import { onMount } from 'svelte';
+  import { initClarity } from '$lib/utils/clarity';
   
   // State for mobile menu
   let isMenuOpen = false;
@@ -25,6 +26,15 @@
     
     window.addEventListener('resize', handleResize);
     
+    // Initialize Microsoft Clarity if project ID is available
+    const projectId = import.meta.env.VITE_CLARITY_PROJECT_ID;
+    if (projectId) {
+      // Pass true as the second parameter to enable Clarity in development mode
+      initClarity(projectId, true);
+    } else {
+      return
+    }
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -47,18 +57,18 @@
         </span>
       </button>
       
-      <!-- Navigation menu -->
-      <nav class:open={isMenuOpen}>
-        <ul>
-          <li><a href="#about" on:click={closeMenu}>About</a></li>
-          <li><a href="#projects" on:click={closeMenu}>Projects</a></li>
-          <li><a href="#contact" on:click={closeMenu}>Contact</a></li>
-          <li><a href="https://drive.google.com/file/d/18wGq9z_-EYAj5Na60oczW-RVGGtTFsPB/view?usp=sharing" target="_blank" on:click={closeMenu}>Resume</a></li>
-        </ul>
-      </nav>
-      
-      <div class="theme-toggle-container">
-        <ThemeToggle />
+      <div class="nav-and-theme">
+        <!-- Navigation menu -->
+        <nav class:open={isMenuOpen}>
+          <ul>
+            <li><a href="/resume" class="nav-special" on:click={closeMenu}>Resume</a></li>
+            <li><a href="/blogs" class="nav-special" on:click={closeMenu}>Blogs</a></li>
+          </ul>
+        </nav>
+        
+        <div class="theme-toggle-container">
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   </header>
@@ -112,11 +122,17 @@
     text-decoration: none;
     color: var(--text-color);
   }
+  
+  .nav-and-theme {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
 
   nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
   }
@@ -129,6 +145,21 @@
 
   nav a:hover {
     color: var(--accent-color);
+  }
+  
+  .nav-special {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+  }
+  
+  .nav-special:hover {
+    background-color: var(--accent-color-light);
+    transform: translateY(-2px);
   }
 
   /* Hamburger menu styles */
@@ -192,6 +223,11 @@
       order: 3;
     }
     
+    .nav-and-theme {
+      width: 100%;
+      justify-content: flex-end;
+    }
+    
     nav {
       position: fixed;
       top: 0;
@@ -217,11 +253,6 @@
     
     nav a {
       font-size: 1.2rem;
-    }
-    
-    .theme-toggle-container {
-      order: 2;
-      margin-right: 1rem;
     }
   }
   
