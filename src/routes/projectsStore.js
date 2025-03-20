@@ -85,7 +85,7 @@ export const projects = [
     id: 'diabetes',
     title: 'Diabetes Prediction App',
     description: 'A machine learning app to predict diabetes risk.',
-    longDescription: 'A cross-platform mobile application built with Flutter and Firebase. The app features a responsive design that works seamlessly on both iOS and Android devices. It includes offline support, push notifications, and a clean, intuitive user interface.',
+    longDescription: 'A cross-platform desktop application built with Electron and SQLite. The app features a responsive design that works seamlessly on both Windows and Linux devices. It includes offline support, push notifications, and a clean, intuitive user interface.',
     tags: ['Electron', 'JavaScript', 'SQLite', 'Python'],
     githubUrl: 'https://github.com/manasseh-fikadu/diabetes-prediction-app',
     liveUrl: '',
@@ -94,6 +94,19 @@ export const projects = [
       '/images/diabetes/dia2.png',
       '/images/diabetes/dia3.png',
       '/images/diabetes/dia4.png',
+    ]
+  },
+  {
+    id: 'mushroom',
+    title: 'Mushroom Classification App',
+    description: 'A machine learning app to classify mushrooms.',
+    longDescription: 'A machine learning project to classify mushrooms of Northern European genes.',
+    tags: ['Python', 'Streamlit', 'Pytorch', 'Pytorch Lightning'],
+    githubUrl: 'https://github.com/manasseh-fikadu/Mushroom-Classification',
+    liveUrl: 'https://mushroom-classification-resnet.streamlit.app/',
+    mainImage: '/images/mushrooms/mushroom1.png',
+    images: [
+      '/images/mushrooms/mushrrom2.png',
     ]
   }
 ];
