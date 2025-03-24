@@ -216,10 +216,10 @@
       <span class="contact-label">LinkedIn</span>
     </a>
     
-    <a href="https://www.upwork.com/freelancers/~01a70ca745aea3a1da" target="_blank" rel="noopener noreferrer" class="contact-item">
+    <a href="https://www.upwork.com/freelancers/~012ac90b612e6f234d" target="_blank" rel="noopener noreferrer" class="contact-item">
       <div class="contact-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 0C22.386 0 0 22.386 0 50C0 77.614 22.386 100 50 100C77.614 100 100 77.614 100 50C100 22.386 77.614 0 50 0ZM72.5 62.5H57.5V77.5H42.5V62.5H27.5V37.5H42.5V22.5H57.5V37.5H72.5V62.5Z" />
         </svg>
       </div>
       <span class="contact-label">Upwork</span>
