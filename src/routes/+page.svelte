@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   // Import projects from the store
   import { projects } from './projectsStore.js';
 
@@ -111,8 +112,8 @@
   <h2 class="section-title">Projects</h2>
   <p class="section-subtitle">A showcase of my recent projects.</p>
   <div class="projects-grid">
-    {#each projects as project}
-      <div class="project-card">
+    {#each projects as project, i}
+      <div class="project-card" transition:fade={{ delay: 100 + i * 80, duration: 600 }}>
         {#if getProjectImages(project).length > 0}
           <div class="project-image">
             <img src={getProjectImages(project)[currentImageIndices[project.id]]} alt={project.title} />
@@ -352,35 +353,75 @@
   }
 
   .project-card {
-    border: 1px solid var(--border-color);
-    border-radius: 0.5rem;
+    position: relative;
+    border: 1.5px solid transparent;
+    border-radius: 1.25rem;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255,255,255,0.13);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.13), 0 1.5px 8px 0 rgba(0,0,0,0.07);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    transition: 
+      transform 0.35s cubic-bezier(.22,1,.36,1), 
+      box-shadow 0.35s cubic-bezier(.22,1,.36,1),
+      border-color 0.3s;
     height: 100%;
     display: flex;
     flex-direction: column;
+    animation: card-fade-in 0.8s cubic-bezier(.22,1,.36,1) both;
+  }
+
+  @keyframes card-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px) scale(1.025) rotateZ(-0.5deg);
+    box-shadow: 0 16px 40px 0 rgba(31,38,135,0.22), 0 2px 8px 0 rgba(0,0,0,0.10);
+    border-color: rgba(0, 153, 255, 0.18); /* subtle blue accent, adjust as needed */
+    z-index: 2;
   }
 
   .project-image {
     position: relative;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
+    background: linear-gradient(120deg, var(--accent-color-light) 0%, var(--secondary-bg) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
+    transition: 
+      transform 0.7s cubic-bezier(.22,1,.36,1),
+      filter 0.4s;
+    filter: brightness(0.96) saturate(1.1) contrast(1.05);
+    will-change: transform, filter;
   }
 
   .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.09) rotateZ(-0.5deg);
+    filter: brightness(1.05) saturate(1.2) contrast(1.08);
+  }
+
+  .project-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,rgba(0,0,0,0.10) 60%,rgba(0,0,0,0.18) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .project-content {
@@ -409,11 +450,27 @@
   }
 
   .tag {
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
+    background: rgba(255,255,255,0.22);
+    color: var(--accent-color);
+    padding: 0.32rem 0.95rem;
+    border-radius: 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 4px 0 rgba(31,38,135,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    margin-bottom: 2px;
+    transition: 
+      background 0.3s,
+      color 0.3s,
+      border 0.3s;
+  }
+  .tag:hover {
+    background: var(--accent-color-light);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
   }
 
   .project-links {
