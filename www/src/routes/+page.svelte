@@ -23,7 +23,7 @@
       </span>
       <span class="pt-1 text-sm font-semibold text-pretty text-fuchsia-100/80">
         email me at
-        <CopyButton text="sw.minasefikadu@gmail.com">
+        <CopyButton text="minasefikaduwm@proton.me">
           <span class="cursor-pointer underline decoration-dotted select-all">minasefikaduwm@proton.me</span>
         </CopyButton>
       </span>

@@ -1,7 +1,7 @@
 const redirectMap: Record<string, string> = {
   github$: "https://github.com/manasseh-fikadu",
   linkedin: "https://www.linkedin.com/in/minase-fikadu/",
-  email: "mailto:sw.minasefikadu@gmail.com",
+  email: "mailto:minasefikaduwm@proton.me",
   upwork: "https://www.upwork.com/freelancers/~012ac90b612e6f234d",
 };
 
