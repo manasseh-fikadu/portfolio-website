@@ -21,7 +21,7 @@
   });
 </script>
 
-<span class="inline-flex items-center justify-center gap-1 text-fuchsia-100">
+<span class="inline-flex items-center justify-center gap-1 text-neo-text font-bold">
   {#if isDay}
     <Sun />
   {:else}

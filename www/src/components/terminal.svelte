@@ -4,21 +4,21 @@
   const { children }: { children: Snippet } = $props();
 </script>
 
-<div class="flex flex-col rounded-xl border border-fuchsia-50/30 bg-gradient-to-tl from-slate-900 to-slate-950">
-  <div class="flex w-full items-center justify-between">
-    <div class="flex items-center gap-2 p-2">
+<div class="flex flex-col neo-box">
+  <div class="flex w-full items-center justify-between border-b-2 border-neo-border bg-neo-tertiary p-2">
+    <div class="flex items-center gap-2">
       <div
-        class="size-3 cursor-pointer rounded-full bg-red-500 opacity-70 transition-opacity duration-100 ease-in-out hover:opacity-100"
+        class="size-3 rounded-full border-2 border-neo-border bg-neo-primary"
       ></div>
       <div
-        class="size-3 cursor-pointer rounded-full bg-yellow-500 opacity-70 transition-opacity duration-100 ease-in-out hover:opacity-100"
+        class="size-3 rounded-full border-2 border-neo-border bg-neo-secondary"
       ></div>
       <div
-        class="size-3 cursor-pointer rounded-full bg-green-500 opacity-70 transition-opacity duration-100 ease-in-out hover:opacity-100"
+        class="size-3 rounded-full border-2 border-neo-border bg-white"
       ></div>
     </div>
   </div>
-  <div class="px-3 py-2">
+  <div class="px-3 py-2 bg-white">
     {@render children()}
   </div>
 </div>

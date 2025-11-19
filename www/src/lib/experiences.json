@@ -1,0 +1,61 @@
+[
+    {
+        "company": "Freelancer (Upwork)",
+        "role": "Freelance Developer",
+        "date": "January 2025 - Present",
+        "location": "Addis Ababa, Ethiopia",
+        "description": [
+            "Freelance development services."
+        ]
+    },
+    {
+        "company": "The Quick Company",
+        "role": "Software Developer",
+        "date": "March 2024 - December 2024",
+        "location": "Dubai, United Arab Emirates",
+        "description": [
+            "Utilizing Django for the development of integrations in the QuickSync(https://quicksync.pro) app.",
+            "Worked on integrating SquareSpace into the inventory management system.",
+            "Testing different integrations making sure they work as expected.",
+            "Using tools like Grafana to check for errors that might be existent in the app."
+        ]
+    },
+    {
+        "company": "A2SV | Africa to Silicon Valley",
+        "role": "Community Coordinator",
+        "date": "May 2023 - November 2023",
+        "location": "Palo Alto, California, United States",
+        "description": [
+            "Organized and facilitated educational activities related to data structures and algorithms.",
+            "Delivered engaging lectures and practice sessions twice a week.",
+            "Created informative and visually appealing learning slides.",
+            "Conducted interactive virtual lectures, promoting active participation.",
+            "Managed attendance and ensured smooth coordination of sessions."
+        ]
+    },
+    {
+        "company": "Eskalate",
+        "role": "Software Engineer",
+        "date": "December 2022 - October 2023",
+        "location": "Palo Alto, California, United States",
+        "description": [
+            "Utilized React and Next.js frameworks to develop dynamic and performant web applications.",
+            "Implemented Redux Toolkit for efficient state management.",
+            "Leveraged Tailwind CSS as a styling library to create modern and responsive user interfaces.",
+            "Collaborated with senior developers to deliver high-quality code.",
+            "Actively participated in code reviews and debugging sessions."
+        ]
+    },
+    {
+        "company": "A2SV | Africa to Silicon Valley",
+        "role": "Back End Developer",
+        "date": "July 2022 - November 2022",
+        "location": "Palo Alto, California, United States",
+        "description": [
+            "Leveraged Node.js, Express, and MongoDB for development processes.",
+            "Utilized Jest and Supertest for comprehensive testing.",
+            "Implemented MongoDB aggregation pipelines to extract valuable insights.",
+            "Contributed to the successful launch of LabConnect, a groundbreaking project."
+        ]
+    }
+]

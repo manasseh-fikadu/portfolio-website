@@ -1,4 +1,4 @@
-import type { ServerLoad } from "@sveltejs/kit";
+import experiences from "../lib/experiences.json";
 
 // TODO: make this dynamic
 export const load: ServerLoad = async () => {
@@ -80,5 +80,5 @@ export const load: ServerLoad = async () => {
     writings = [];
   }
 
-  return { projects, writings };
+  return { projects, writings, experiences };
 };

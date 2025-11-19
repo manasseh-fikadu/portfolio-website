@@ -1,7 +1,10 @@
 <script lang="ts">
   import SimpleMarkdown from "./SimpleMarkdown.svelte";
+  import Modal from "./modal.svelte";
+  import GameHub from "./game-hub.svelte";
 
   let userInput = "";
+  let showGame = false;
   let inputElement: HTMLInputElement;
   let cursorPosition = 0;
   const geminiApiKey = (import.meta as any).env.VITE_GEMINI_API_KEY;
@@ -98,58 +101,66 @@
 
 <header class="flex w-full flex-col">
   <nav class="w-full py-4 md:py-6">
-    <div class="flex items-center text-lg font-bold text-fuchsia-400/90 smooth">
+    <div class="text-neo-text smooth flex items-center text-lg font-bold">
       <span
-        class="underline decoration-fuchsia-300/50 decoration-dotted underline-offset-2 smooth hover:decoration-fuchsia-500"
+        class="decoration-neo-primary smooth hover:decoration-neo-secondary underline decoration-wavy underline-offset-4"
       >
         web@minasefikadu.com
       </span>
-      <span class="mx-1">~</span>
-      <div class="relative flex-1">
-        <input
-          bind:this={inputElement}
-          type="text"
-          class="w-full bg-transparent text-fuchsia-400/90 placeholder-fuchsia-400/20 caret-transparent outline-none"
-          placeholder={isLoading ? "Thinking..." : "Ask AI"}
-          spellcheck="false"
-          bind:value={userInput}
-          on:input={handleInput}
-          on:keydown={handleKeydown}
-          on:click={handleClick}
-          on:select={handleSelect}
-          disabled={isLoading}
-        />
-        <div class="pointer-events-none absolute inset-0">
-          <span class="relative">
-            <span
-              class="absolute top-0 mx-[2px] inline-block h-[1.2em] w-[0.5px] animate-blink bg-current"
-              style="left: {cursorPosition * 0.61}em"
-            ></span>
-          </span>
+      <span class="mx-2 font-black">~</span>
+      <div class="relative flex flex-1 gap-2">
+        <div class="relative flex-1">
+          <input
+            bind:this={inputElement}
+            type="text"
+            class="neo-input placeholder-gray-400"
+            placeholder={isLoading ? "Thinking..." : "Ask AI"}
+            spellcheck="false"
+            bind:value={userInput}
+            on:input={handleInput}
+            on:keydown={handleKeydown}
+            on:click={handleClick}
+            on:select={handleSelect}
+            disabled={isLoading}
+          />
         </div>
+        <button
+          class="neo-button flex items-center justify-center px-3"
+          on:click={() => (showGame = true)}
+          title="Play Snake"
+        >
+          🎮
+        </button>
       </div>
     </div>
     {#if cooldownMessage}
-      <div class="mt-1 text-xs text-amber-400">{cooldownMessage}</div>
+      <div
+        class="text-neo-primary bg-neo-tertiary border-neo-border shadow-neo-hover mt-1 inline-block border p-1 text-xs font-bold"
+      >
+        {cooldownMessage}
+      </div>
     {/if}
   </nav>
 
   {#if aiResponse}
-    <div class="mt-4 rounded-lg bg-zinc-800/50 p-4 text-fuchsia-50/90">
-      <div class="mb-2 flex items-center justify-between gap-2 text-sm text-fuchsia-400/70">
+    <div class="neo-box text-neo-text mt-4 p-4">
+      <div class="border-neo-border mb-2 flex items-center justify-between gap-2 border-b-2 pb-2">
         <div class="flex items-center gap-2">
-          <span class="font-bold">AI</span>
-          <span class="text-zinc-500">~</span>
+          <span class="bg-neo-primary border-neo-border shadow-neo-hover border-2 px-2 py-0.5 font-black text-white"
+            >AI</span
+          >
+          <span class="text-neo-text font-bold">says:</span>
         </div>
-        <button
-          on:click={clearResponse}
-          class="rounded bg-fuchsia-600/50 px-2 py-1 text-xs font-bold text-fuchsia-100/70 smooth hover:bg-fuchsia-700/50"
-        >
-          Clear
-        </button>
+        <button on:click={clearResponse} class="neo-button text-xs"> Clear </button>
       </div>
       <SimpleMarkdown value={aiResponse} />
     </div>
+  {/if}
+
+  {#if showGame}
+    <Modal title="Arcade" on:close={() => (showGame = false)}>
+      <GameHub />
+    </Modal>
   {/if}
 </header>
 

@@ -16,23 +16,22 @@
 
   <div class="flex w-full items-center justify-between gap-1">
     <div class="flex flex-col text-xl">
-      <span class="font-semibold">Hello,</span>
-      <span>I'm Minase Fikadu</span>
-      <span class="pt-1 text-sm font-semibold text-pretty text-fuchsia-100/50">
-        Software Developer | Data Scientist
-      </span>
-      <span class="pt-1 text-sm font-semibold text-pretty text-fuchsia-100/80">
+      <span class="text-2xl font-black">Hello,</span>
+      <span class="font-bold">I'm Minase Fikadu</span>
+      <span class="text-neo-text pt-1 text-sm font-bold"> Software Developer | Data Scientist </span>
+      <span class="text-neo-text pt-1 text-sm font-bold">
         email me at
         <CopyButton text="minasefikaduwm@proton.me">
-          <span class="cursor-pointer underline decoration-dotted select-all">minasefikaduwm@proton.me</span>
+          <span class="decoration-neo-primary hover:bg-neo-tertiary cursor-pointer select-all underline decoration-wavy"
+            >minasefikaduwm@proton.me</span
+          >
         </CopyButton>
       </span>
       <a
         href="/assets/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-2 w-fit rounded bg-fuchsia-600 px-4 py-2 text-sm font-bold text-white shadow smooth hover:bg-fuchsia-700"
-        style="margin-top: 0.75rem;"
+        class="neo-button text-neo-text mt-4 w-fit"
       >
         View Resume
       </a>
@@ -41,7 +40,7 @@
       <img
         src="1718288886416.jpg"
         alt="Minase Fikadu"
-        class="aspect-square size-32 drama-fuchsia-600/80 spring-duration-500 spring-bounce-40 drama-28 select-none hover:rotate-0 hover:drama-5"
+        class="border-neo-border shadow-neo hover:shadow-neo-lg aspect-square size-32 border-4 transition-all"
       />
     </div>
   </div>
@@ -52,7 +51,7 @@
       <CommandOutput>Welcome to Minase Fikadu!</CommandOutput>
       <CommandOutput>
         <span class="flex items-center gap-2">
-          <span class="text-fuchsia-500 text-glow-fuchsia-500"><Spinner interval={150} /></span>
+          <span class="text-neo-primary"><Spinner interval={150} /></span>
           Time: <LiveTime /> (GMT+3)
         </span>
       </CommandOutput>
@@ -63,13 +62,36 @@
         <div class="flex flex-col gap-3">
           {#each data.projects as project}
             <a
-              class="flex flex-col gap-1 rounded-lg border border-slate-800 p-3 smooth hover:border-glow-fuchsia-600 hover:border-fuchsia-500"
+              class="neo-box flex flex-col gap-1 p-3 transition-transform hover:-translate-y-1 hover:translate-x-1"
               href={project.url}
               target="_blank"
             >
-              <span class="font-bold">{project.title}</span>
-              <span class="text-sm font-semibold text-pretty text-fuchsia-400">{project.description}</span>
+              <span class="text-lg font-black">{project.title}</span>
+              <span class="text-neo-text text-sm font-bold">{project.description}</span>
             </a>
+          {/each}
+        </div>
+      </CommandOutput>
+      <div class="py-3"></div>
+      <Command>cat ~/Experiences</Command>
+      <CommandOutput>
+        <div class="flex flex-col gap-4">
+          {#each data.experiences as experience}
+            <div class="neo-box flex flex-col gap-1 p-4">
+              <div class="border-neo-border mb-2 flex flex-wrap items-baseline justify-between gap-2 border-b-2 pb-2">
+                <span class="text-lg font-black">{experience.role}</span>
+                <span class="text-neo-primary text-sm font-bold">{experience.date}</span>
+              </div>
+              <div class="text-neo-text mb-2 flex items-center justify-between text-sm font-bold">
+                <span>{experience.company}</span>
+                <span class="text-neo-secondary italic">{experience.location}</span>
+              </div>
+              <ul class="list-inside list-disc space-y-1">
+                {#each experience.description as desc}
+                  <li class="text-neo-text/80 text-sm font-medium">{desc}</li>
+                {/each}
+              </ul>
+            </div>
           {/each}
         </div>
       </CommandOutput>
@@ -79,12 +101,12 @@
         <div class="flex flex-col gap-3">
           {#each data.writings as writing}
             <a
-              class="flex flex-col gap-1 rounded-lg border border-slate-800 p-3 smooth hover:border-glow-fuchsia-600 hover:border-fuchsia-500"
+              class="neo-box flex flex-col gap-1 p-3 transition-transform hover:-translate-y-1 hover:translate-x-1"
               href={writing.url}
               target="_blank"
             >
-              <span class="font-bold">{writing.title}</span>
-              <span class="text-sm font-semibold text-pretty text-fuchsia-400">{writing.description}</span>
+              <span class="text-lg font-black">{writing.title}</span>
+              <span class="text-neo-text text-sm font-bold">{writing.description}</span>
             </a>
           {/each}
         </div>
@@ -93,22 +115,16 @@
       <Command>cat ~/socials.json</Command>
       <CommandOutput>
         <div class="flex flex-wrap gap-2">
-          <span class="rounded-lg border border-slate-800 p-2 smooth">
-            <span class="text-sm font-bold text-fuchsia-400">[</span>
+          <span class="neo-box p-2">
+            <span class="text-neo-text text-sm font-black">[</span>
           </span>
           {#each Object.entries(socials) as [link, name], i}
-            <a
-              class="rounded-lg border border-slate-800 p-2 smooth hover:border-glow-fuchsia-600 hover:border-fuchsia-500"
-              href={`/${link}`}
-              target="_blank"
-            >
-              <span class="text-sm font-bold text-fuchsia-400"
-                >"{name}"{i === Object.keys(socials).length - 1 ? "" : ","}</span
-              >
+            <a class="neo-button text-sm" href={`/${link}`} target="_blank">
+              <span class="font-bold">"{name}"{i === Object.keys(socials).length - 1 ? "" : ","}</span>
             </a>
           {/each}
-          <span class="rounded-lg border border-slate-800 p-2 smooth">
-            <span class="text-sm font-bold text-fuchsia-400">]</span>
+          <span class="neo-box p-2">
+            <span class="text-neo-text text-sm font-black">]</span>
           </span>
         </div>
       </CommandOutput>
@@ -119,12 +135,8 @@
 
   <div class="py-4">
     <div class="flex w-full flex-wrap items-center justify-between gap-1 py-4">
-      <div class="text-xs font-bold text-fuchsia-100/50">
-        <a
-          href="/gh/www"
-          class="underline decoration-dotted smooth hover:text-fuchsia-500/90 hover:text-glow-fuchsia-700"
-          target="_blank"
-        >
+      <div class="text-neo-text text-xs font-bold">
+        <a href="/gh/www" class="hover:bg-neo-primary underline decoration-dotted hover:text-white" target="_blank">
           {new Date().getFullYear()}
         </a>
       </div>
