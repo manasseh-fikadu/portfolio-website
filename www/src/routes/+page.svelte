@@ -21,9 +21,9 @@
       <span class="text-neo-text pt-1 text-sm font-bold"> Software Developer | Data Scientist </span>
       <span class="text-neo-text pt-1 text-sm font-bold">
         email me at
-        <CopyButton text="minasefikaduwm@proton.me">
+        <CopyButton text="sw.minasefikadu@gmail.com">
           <span class="decoration-neo-primary hover:bg-neo-tertiary cursor-pointer select-all underline decoration-wavy"
-            >minasefikaduwm@proton.me</span
+            >sw.minasefikadu@gmail.com</span
           >
         </CopyButton>
       </span>

@@ -4,6 +4,18 @@ import experiences from "../lib/experiences.json";
 export const load: ServerLoad = async () => {
   const projects = [
     {
+      title: "Gradients.io",
+      description:
+        "A decentralized AI training platform on Bittensor built around the idea that anyone can train AI.",
+      url: "https://gradients.io",
+    },
+    {
+      title: "Careit",
+      description:
+        "A food donation and rescue platform that helps businesses share surplus food with local nonprofits.",
+      url: "https://careit.com",
+    },
+    {
       title: "QuickSync",
       description:
         "A very robust web app that enables users to sync their inventory, products and orders in real time.",
