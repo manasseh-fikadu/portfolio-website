@@ -1,9 +1,0 @@
-<script lang="ts">
-  import type { Snippet } from "svelte";
-
-  const { children }: { children: Snippet } = $props();
-</script>
-
-<div class="py-1 text-neo-primary font-black before:content-['$_']">
-  {@render children()}
-</div>

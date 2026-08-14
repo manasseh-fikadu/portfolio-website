@@ -1,66 +1,49 @@
 @import "tailwindcss";
-@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/inter";
 
-@plugin "tailwindcss-spring";
-@plugin "./lib/tailwind-plugin-glow.ts";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-  --animate-blink: blink 1s infinite;
+  --font-sans:
+    "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  /* Neo-Brutalism Colors */
-  --color-neo-bg: #FFFDF5;
-  --color-neo-text: #000000;
-  --color-neo-primary: #FF6B6B;
-  --color-neo-secondary: #4ECDC4;
-  --color-neo-tertiary: #FFE66D;
-  --color-neo-border: #000000;
-
-  /* Neo-Brutalism Shadows */
-  --shadow-neo: 4px 4px 0px 0px #000000;
-  --shadow-neo-hover: 2px 2px 0px 0px #000000;
-  --shadow-neo-lg: 8px 8px 0px 0px #000000;
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-subtle: #fafafa;
 }
 
 @layer base {
   html {
-    @apply scroll-smooth font-mono antialiased;
+    @apply scroll-smooth font-sans antialiased;
+    color-scheme: light;
   }
 
   body {
-    @apply bg-neo-bg text-neo-text min-h-screen;
+    @apply min-h-screen bg-bg text-fg;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  a {
+    @apply underline-offset-4;
   }
 
   ::selection {
-    @apply bg-neo-primary text-white;
-  }
-
-  @keyframes blink {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0;
-    }
+    @apply bg-fg/10;
   }
 }
 
-@utility smooth {
-  @apply transition-all duration-200 ease-in-out;
+/* Unlayered so these override the values emitted by `@theme` into :root. */
+.dark {
+  --color-bg: #0b0b0c;
+  --color-fg: #ededed;
+  --color-muted: #8b8b91;
+  --color-line: #232326;
+  --color-subtle: #141416;
+  color-scheme: dark;
 }
 
-@utility neo-box {
-  @apply border-2 border-neo-border bg-white shadow-neo;
-}
-
-@utility neo-button {
-  @apply border-2 border-neo-border bg-neo-secondary px-4 py-2 font-bold shadow-neo active:translate-x-[2px] active:translate-y-[2px] active:shadow-neo-hover transition-all hover:-translate-y-0.5 hover:translate-x-0.5;
-}
-
-@utility neo-input {
-  @apply w-full border-2 border-neo-border bg-white p-2 outline-none focus:shadow-neo transition-shadow;
+@utility card {
+  @apply rounded-lg border border-line bg-transparent;
 }

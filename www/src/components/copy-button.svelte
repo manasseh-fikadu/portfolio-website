@@ -6,10 +6,12 @@
   let copied = $state(false);
 </script>
 
-<span class="group inline-flex items-center justify-center gap-2">
+<span class="group inline-flex items-center gap-1.5">
   {@render children()}
   <button
-    class="opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+    type="button"
+    class="text-xs text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100 hover:text-fg focus-visible:opacity-100"
+    aria-label={copied ? "Copied" : "Copy to clipboard"}
     onclick={() => {
       navigator.clipboard.writeText(text).then(() => {
         copied = true;
