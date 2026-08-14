@@ -1,12 +1,24 @@
+import type { ServerLoad } from "@sveltejs/kit";
 import experiences from "../lib/experiences.json";
+
+type Writing = {
+  title: string;
+  description: string;
+  url: string;
+  thumbnail?: string;
+};
+
+type Rss2JsonResponse = {
+  status: string;
+  items: { title: string; description: string; link: string; content: string; thumbnail?: string }[];
+};
 
 // TODO: make this dynamic
 export const load: ServerLoad = async () => {
   const projects = [
     {
       title: "Gradients.io",
-      description:
-        "A decentralized AI training platform on Bittensor built around the idea that anyone can train AI.",
+      description: "A decentralized AI training platform on Bittensor built around the idea that anyone can train AI.",
       url: "https://gradients.io",
     },
     {
@@ -60,15 +72,15 @@ export const load: ServerLoad = async () => {
 
   // Fetch Medium posts for writings
   const mediumUsername = "@minasesotlg"; // Replace with your actual Medium username if needed
-  let writings = [];
+  let writings: Writing[] = [];
   try {
     const response = await fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${mediumUsername}`,
     );
     if (response.ok) {
-      const data: any = await response.json();
+      const data = (await response.json()) as Rss2JsonResponse;
       if (data.status === "ok") {
-        writings = (data.items as any[]).map((item: any) => {
+        writings = data.items.map((item) => {
           // Extract image from content if thumbnail is missing
           let thumbnail = item.thumbnail;
           if (!thumbnail || thumbnail === "") {
