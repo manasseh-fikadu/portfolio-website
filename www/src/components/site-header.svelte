@@ -3,6 +3,6 @@
 </script>
 
 <header class="flex items-center justify-between py-10">
-  <a href="/" class="text-sm no-underline">minasefikadu.com</a>
+  <a href="/" class="text-sm no-underline">minasefikadu.dev</a>
   <ThemeToggle />
 </header>
