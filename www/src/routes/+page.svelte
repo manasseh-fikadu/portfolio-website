@@ -1,6 +1,7 @@
 <script lang="ts">
   import CopyButton from "../components/copy-button.svelte";
   import LiveTime from "../components/live-time.svelte";
+  import GitHubActivity from "../components/github-activity.svelte";
   import Section from "../components/section.svelte";
   import SiteHeader from "../components/site-header.svelte";
   import { socials } from "../lib/socials";
@@ -114,6 +115,10 @@
       {/each}
     </div>
   </Section>
+
+  <section class="border-t border-line py-10" aria-label="GitHub activity">
+    <GitHubActivity />
+  </section>
 
   <footer class="flex items-center justify-between border-t border-line py-8 text-xs text-muted">
     <a href="/gh/www" target="_blank" rel="noopener noreferrer" class="no-underline transition-colors hover:text-fg">
