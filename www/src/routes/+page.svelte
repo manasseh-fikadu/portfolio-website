@@ -1,6 +1,7 @@
 <script lang="ts">
   import CopyButton from "../components/copy-button.svelte";
   import LiveTime from "../components/live-time.svelte";
+  import ProjectsList from "../components/projects-list.svelte";
   import GitHubActivity from "../components/github-activity.svelte";
   import Section from "../components/section.svelte";
   import SiteHeader from "../components/site-header.svelte";
@@ -45,21 +46,7 @@
     />
   </div>
 
-  <Section title="Projects">
-    <div class="grid gap-3 sm:grid-cols-2">
-      {#each data.projects as project (project.url)}
-        <a
-          class="flex flex-col gap-1.5 card p-4 no-underline transition-colors hover:border-fg/30"
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="text-sm font-medium">{project.title}</span>
-          <span class="text-sm leading-relaxed text-muted">{project.description}</span>
-        </a>
-      {/each}
-    </div>
-  </Section>
+  <ProjectsList />
 
   <Section title="Experience">
     <div class="flex flex-col gap-8">

@@ -13,63 +13,7 @@ type Rss2JsonResponse = {
   items: { title: string; description: string; link: string; content: string; thumbnail?: string }[];
 };
 
-// TODO: make this dynamic
 export const load: ServerLoad = async () => {
-  const projects = [
-    {
-      title: "Gradients.io",
-      description: "A decentralized AI training platform on Bittensor built around the idea that anyone can train AI.",
-      url: "https://gradients.io",
-    },
-    {
-      title: "Careit",
-      description:
-        "A food donation and rescue platform that helps businesses share surplus food with local nonprofits.",
-      url: "https://careit.com",
-    },
-    {
-      title: "QuickSync",
-      description:
-        "A very robust web app that enables users to sync their inventory, products and orders in real time.",
-      url: "https://quicksync.pro",
-    },
-    {
-      title: "TravelWave",
-      description: "A ride sharing application built ot help passengers pool a ride if they have the same destination.",
-      url: "https://github.com/orgs/TravelWave/repositories",
-    },
-    {
-      title: "AiQEM",
-      description: "An AI based advertisement enhancement platform.",
-      url: "https://aiqem.tech",
-    },
-    {
-      title: "Stroke Prediction App",
-      description: "A machine learning app to predict stroke risk.",
-      url: "https://stroke-backend.vercel.app/",
-    },
-    {
-      title: "Loan Approval Prediction App",
-      description: "A machine learning app to predict loan approval risk.",
-      url: "https://loan-prediction-051v.onrender.com/",
-    },
-    {
-      title: "Home Credit Default Risk Prediction App",
-      description: "A machine learning app to predict home credit default risk.",
-      url: "https://home-credit-gradio.onrender.com/",
-    },
-    {
-      title: "Diabetes Prediction App",
-      description: "A machine learning app to predict diabetes risk.",
-      url: "https://github.com/manasseh-fikadu/diabetes-prediction-app",
-    },
-    {
-      title: "Mushroom Classification App",
-      description: "A machine learning app to classify mushrooms.",
-      url: "https://mushroom-classification-resnet.streamlit.app/",
-    },
-  ];
-
   // Fetch Medium posts for writings
   const mediumUsername = "@minasesotlg"; // Replace with your actual Medium username if needed
   let writings: Writing[] = [];
@@ -104,5 +48,5 @@ export const load: ServerLoad = async () => {
     writings = [];
   }
 
-  return { projects, writings, experiences };
+  return { writings, experiences };
 };
